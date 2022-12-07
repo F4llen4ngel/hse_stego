@@ -1,6 +1,6 @@
 from PIL import Image
 from os.path import exists
-import lib.crypto.lsb
+from lib.crypto import lsb
 
 
 class Stego:
@@ -22,7 +22,7 @@ class Stego:
 
         self.image = Image.open(path)
 
-    def write_image(self, path: str):
+    def save_image(self, path: str):
         """
         Writes image to given file.
 
@@ -46,7 +46,7 @@ class Stego:
         assert method in ('lsb'), f"[ERROR]: incorrect method. '{method}'"
 
         if method == 'lsb':
-            self.image = lib.crypto.lsb.encode_data(self.image, data)
+            self.image = lsb.encode_data(self.image, data)
 
     def decode_data(self, method: str = 'lsb') -> bytes:
         """
@@ -60,6 +60,6 @@ class Stego:
         data = b''
 
         if method == 'lsb':
-            data = lib.crypto.lsb.decode_data(self.image)
+            data = lsb.decode_data(self.image)
 
         return data

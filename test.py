@@ -1,10 +1,10 @@
-import lib.crypto.lsb
-from PIL import Image
+from lib.steganography import Stego
 
-from lib.crypto.encoder import encode_bytes, decode_bytes
 
-img = Image.open("test.png")
-encoded_image = lib.crypto.lsb.encode_data(Image.open("test.png"), b"huesos")
-decoded_data = lib.crypto.lsb.decode_data(encoded_image)
-encoded_image.save("enc.png")
-print(decoded_data)
+stg = Stego()
+stg.load_image("test.png")
+stg.encode_data(b"amogus")
+print(stg.decode_data())
+stg.save_image("enc.png")
+stg.load_image("enc.png")
+print(stg.decode_data())
