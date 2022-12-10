@@ -6,7 +6,7 @@ from os.path import exists
 def print_usage():
     usage_msg = """
     usage: python3 main.py --file=$filename$ --method=$method$
-    --file [filename of picture]
+    --file [filename of PNG picture]
     --method: [lsb]
     """
     print(usage_msg)

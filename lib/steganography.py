@@ -19,19 +19,19 @@ class Stego:
             path (str): absolute/relative path to the image.
         """
         assert exists(path), "[ERROR]: can't open image. File does not exist."
-
         self.image = Image.open(path)
+        assert self.image.format == "PNG", "[ERROR]: convert image to png to encode messages."
 
     def save_image(self, path: str):
         """
-        Writes image to given file.
+        Writes image in given directory.
 
         Args:
-            path (str): absolute/relative path to the image.
+            path (str): absolute/relative path to the directory.
         """
         assert self.image is not None, "[ERROR]: No image was loaded."
 
-        self.image.save(path)
+        self.image.save(path + "/enc_" + self.image.filename.split(".")[0] + ".png")
 
     def encode_data(self, data: bytes, method: str = 'lsb'):
         """
