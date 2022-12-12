@@ -1,6 +1,6 @@
 import cv2
 from os.path import exists
-from lib.crypto import lsb
+from lib.crypto import lsb, pm1
 
 
 class Stego:
@@ -31,6 +31,9 @@ class Stego:
         assert self.image is not None, "[ERROR]: No image was loaded."
         cv2.imwrite(path, self.image)
 
+    def check_method(self, method: str):
+        return method in ('lsb', 'pm1')
+
     def encode_data(self, data: bytes, method: str):
         """
         Encodes given data into image using specified steganography method.
@@ -41,10 +44,12 @@ class Stego:
         """
         assert self.image is not None, "[ERROR]: image was not specified."
         assert data != b"", "[ERROR]: data can't be empty."
-        assert method in ('lsb'), f"[ERROR]: incorrect method. '{method}'"
+        assert self.check_method(method), f"[ERROR]: incorrect method. '{method}'"
 
         if method == 'lsb':
             self.image = lsb.encode_data(self.image, data)
+        elif method == 'pm1':
+            self.image = pm1.encode_data(self.image, data)
 
     def decode_data(self, method: str) -> bytes:
         """
@@ -53,11 +58,13 @@ class Stego:
         Args:
             method (str): steganography method
         """
-        assert method in ('lsb'), f"[ERROR]: incorrect method. '{method}'"
+        assert self.check_method(method), f"[ERROR]: incorrect method. '{method}'"
 
         data = b''
 
         if method == 'lsb':
             data = lsb.decode_data(self.image)
+        elif method == 'pm1':
+            data = pm1.decode_data(self.image)
 
         return data
