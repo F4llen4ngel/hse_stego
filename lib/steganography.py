@@ -1,4 +1,4 @@
-from PIL import Image
+import cv2
 from os.path import exists
 from lib.crypto import lsb
 
@@ -16,30 +16,28 @@ class Stego:
         Loads image from given file.
 
         Args:
-            path (str): absolute/relative path to the image.
+            path (str): absolute/relative path to the image
         """
         assert exists(path), "[ERROR]: can't open image. File does not exist."
-        self.image = Image.open(path)
-        assert self.image.format == "PNG", "[ERROR]: convert image to png to encode messages."
+        self.image = cv2.imread(path)
 
     def save_image(self, path: str):
         """
-        Writes image in given directory.
+        Writes image to given file.
 
         Args:
-            path (str): absolute/relative path to the directory.
+            path (str): absolute/relative path to the file
         """
         assert self.image is not None, "[ERROR]: No image was loaded."
+        cv2.imwrite(path, self.image)
 
-        self.image.save(path + "/enc_" + self.image.filename.split(".")[0] + ".png")
-
-    def encode_data(self, data: bytes, method: str = 'lsb'):
+    def encode_data(self, data: bytes, method: str):
         """
-        Encodes given data into image using specified steganography method (default lsb).
+        Encodes given data into image using specified steganography method.
 
         Args:
-            data (bytes): data to encode.
-            method (str, optional): steganography method. Defaults to 'lsb'.
+            data (bytes): data to encode
+            method (str): steganography method
         """
         assert self.image is not None, "[ERROR]: image was not specified."
         assert data != b"", "[ERROR]: data can't be empty."
@@ -48,12 +46,12 @@ class Stego:
         if method == 'lsb':
             self.image = lsb.encode_data(self.image, data)
 
-    def decode_data(self, method: str = 'lsb') -> bytes:
+    def decode_data(self, method: str) -> bytes:
         """
-        Decodes data from image using specified steganography method (default lsb).
+        Decodes data from image using specified steganography method.
 
         Args:
-            method (str, optional): steganography method. Defaults to 'lsb'.
+            method (str): steganography method
         """
         assert method in ('lsb'), f"[ERROR]: incorrect method. '{method}'"
 
