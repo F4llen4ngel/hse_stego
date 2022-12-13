@@ -1,5 +1,4 @@
 import cv2
-from math import ceil
 
 from lib.crypto.encoder import encode_bytes, decode_bytes
 
@@ -22,7 +21,7 @@ def encode_data(image: cv2.Mat, data: bytes) -> cv2.Mat:
 
     data = encode_bytes(data)
 
-    for i in range(ceil(len(data) / width)):
+    for i in range((len(data) + width - 1) // width):
         for j in range(min(width, len(data) - width * i)):
             image[i, j][2] = (image[i, j][2] | int('11', 2)) & int("1" * 8 + data[i * width + j], 2)
 

@@ -9,9 +9,15 @@ def encode_data(image: cv2.Mat, data: bytes) -> cv2.Mat:
         data (bytes): data to encode
 
     Returns:
-        cv2.Mat: cv2 image with encoded datas
+        cv2.Mat: cv2 image with encoded data
     """
-    pass
+    height, width, _ = image.shape
+    assert height * width >= len(data), "[ERROR]: Can't encode data: image is too small."
+
+    data = encode_bytes(data)
+    for i in range((len(data) + width - 1) // width):
+        for j in range(10):
+            pass
 
 
 def decode_data(image: cv2.Mat) -> bytes:
