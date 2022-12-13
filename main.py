@@ -25,11 +25,11 @@ def parse_args():
     methods = ("lsb", "pm1", "qmi")
 
     # decode request 
-    if len(args) == 5 and args[4] == "decode" and args[0] == "--file" and exists(args[1]) and args[2] == "--method" and args[3] in methods:
+    if len(args) == 5 and args[4] == "--decode" and args[0] == "--file" and exists(args[1]) and args[2] == "--method" and args[3] in methods:
         return "decode", args[1], args[3]
 
     # encode request
-    if len(args) == 6 and args[4] == 'encode' and args[0] == "--file" and exists(args[1]) and args[2] == "--method" and args[3] in methods:
+    if len(args) == 6 and args[4] == "--encode" and args[0] == "--file" and exists(args[1]) and args[2] == "--method" and args[3] in methods:
         return "encode", args[1], args[3], args[5].encode("utf-8")
 
     # bad request
