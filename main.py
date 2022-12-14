@@ -7,7 +7,7 @@ def print_usage():
     usage: python3 main.py --file=$filename$ --method=$method$ --decode
            python3 main.py --file=$filename$ --method=$method$ --encode $data$
     $filename$: [filename of PNG picture]
-    $method$: [lsb, pm1, qmi]
+    $method$: [lsb, pm1, qim]
     $data$: [bytes]
     """
     print(usage_msg)
@@ -22,7 +22,7 @@ def parse_args():
     args = []
     for arg in sys.argv[1:]:
         args += arg.split('=')
-    methods = ("lsb", "pm1", "qmi")
+    methods = ("lsb", "pm1", "qim")
 
     # decode request 
     if len(args) == 5 and args[4] == "--decode" and args[0] == "--file" and exists(args[1]) and args[2] == "--method" and args[3] in methods:
