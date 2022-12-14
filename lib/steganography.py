@@ -5,7 +5,7 @@ from lib.crypto import lsb, pm1, qim
 
 class Stego:
     """
-    Provides multiple steganograpy information encoding/decoding methods.
+    Provides multiple steganography information encoding/decoding methods.
     """
 
     def __init__(self):
