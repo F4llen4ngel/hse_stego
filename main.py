@@ -15,7 +15,7 @@ def print_usage():
 
 def parse_args():
     """Checks kwargs and returns parsed data to main.
-
+    
     Returns:
         _type_: tuple
     """

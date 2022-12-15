@@ -1,0 +1,32 @@
+digraph "steganography.Stego.encode_data"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="steganography.Stego.encode_data",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="steganography.Stego.check\l_method",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classsteganography_1_1_stego.html#a64c96ba44dbf260056ba60c433662c7e",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="lsb.encode_data",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacelsb.html#a9081b7e1ba66ed9fdd0da8c54a7432b4",tooltip=" "];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="encoder.encode_bytes",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespaceencoder.html#aba8ced14b0f536cf45bf10415dcee4ad",tooltip=" "];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="pm1.encode_data",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacepm1.html#adab6886c3052b1e7012718ef5a91d041",tooltip=" "];
+  Node5 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="pvd.encode_data",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacepvd.html#a6be4ccc87150c792ad42017c846d4435",tooltip=" "];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="pvd.calculate_new_pixels",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacepvd.html#a2745930c4ffcda99f318c214003bbfa3",tooltip=" "];
+  Node6 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="pvd.get_n",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacepvd.html#aff9ef4aaedde8d8ca74a91948be27f89",tooltip=" "];
+  Node6 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="pvd.get_values_diff",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacepvd.html#a15deb3360a4f59f4494c9f96e1a9d94f",tooltip=" "];
+  Node6 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="pvd.get_w",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacepvd.html#a096d86a02e92045375babb6bada4ce49",tooltip=" "];
+  Node1 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="qim.encode_data",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespaceqim.html#ab1ad801006273c505f422f6de34a7370",tooltip=" "];
+  Node11 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

@@ -1,0 +1,19 @@
+digraph "pvd.encode_data"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="pvd.encode_data",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="pvd.calculate_new_pixels",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacepvd.html#a2745930c4ffcda99f318c214003bbfa3",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="encoder.encode_bytes",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespaceencoder.html#aba8ced14b0f536cf45bf10415dcee4ad",tooltip=" "];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="pvd.get_n",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacepvd.html#aff9ef4aaedde8d8ca74a91948be27f89",tooltip=" "];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="pvd.get_values_diff",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacepvd.html#a15deb3360a4f59f4494c9f96e1a9d94f",tooltip=" "];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="pvd.get_w",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacepvd.html#a096d86a02e92045375babb6bada4ce49",tooltip=" "];
+}
