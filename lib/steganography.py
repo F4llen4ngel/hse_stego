@@ -1,6 +1,6 @@
 import cv2
 from os.path import exists
-from lib.crypto import lsb, pm1, qim
+from lib.crypto import lsb, pm1, qim, pvd
 
 
 class Stego:
@@ -32,7 +32,7 @@ class Stego:
         cv2.imwrite(path, self.image)
 
     def check_method(self, method: str):
-        return method in ('lsb', 'pm1', 'qim')
+        return method in ('lsb', 'pm1', 'qim', 'pvd')
 
     def encode_data(self, data: bytes, method: str):
         """
@@ -52,6 +52,8 @@ class Stego:
             self.image = pm1.encode_data(self.image, data)
         elif method == 'qim':
             self.image = qim.encode_data(self.image, data)
+        elif method == 'pvd':
+            self.image = pvd.encode_data(self.image, data)
 
     def decode_data(self, method: str) -> bytes:
         """
@@ -70,5 +72,7 @@ class Stego:
             data = pm1.decode_data(self.image)
         elif method == 'qim':
             data = qim.decode_data(self.image)
+        elif method == 'pvd':
+            data = pvd.decode_data(self.image)
 
         return data
