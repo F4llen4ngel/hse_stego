@@ -58,4 +58,5 @@ def test_nmi_long_input():
     with pytest.raises(Exception) as e:
         stg.load_image("putin.png")
         stg.encode_data(b"Hello, world!" * 1000000, "nmi")
-    assert str(e.value) == "[ERROR]: Can't encode data: image is too small."    
+    assert str(e.value) == "[ERROR]: Can't encode data: image is too small." 
+    
