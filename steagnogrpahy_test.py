@@ -38,24 +38,24 @@ def test_qim():
 def test_lsb_long_input():
     with pytest.raises(Exception) as e:
         stg.load_image("putin.png")
-        stg.encode_data(b"Hello, world!" * 100000, "lsb")
+        stg.encode_data(b"Hello, world!" * 1000000, "lsb")
     assert str(e.value) == "[ERROR]: Can't encode data: image is too small."
 
 
 def test_pm1_long_input():
     with pytest.raises(Exception) as e:
         stg.load_image("putin.png")
-        stg.encode_data(b"Hello, world!" * 100000, "pm1")
+        stg.encode_data(b"Hello, world!" * 1000000, "pm1")
     assert str(e.value) == "[ERROR]: Can't encode data: image is too small."
 
 def test_qim_long_input():
     with pytest.raises(Exception) as e:
         stg.load_image("putin.png")
-        stg.encode_data(b"Hello, world!" * 100000, "qim")
+        stg.encode_data(b"Hello, world!" * 1000000, "qim")
     assert str(e.value) == "[ERROR]: Can't encode data: image is too small."
 
 def test_nmi_long_input():
     with pytest.raises(Exception) as e:
         stg.load_image("putin.png")
-        stg.encode_data(b"Hello, world!" * 100000, "nmi")
+        stg.encode_data(b"Hello, world!" * 1000000, "nmi")
     assert str(e.value) == "[ERROR]: Can't encode data: image is too small."    
