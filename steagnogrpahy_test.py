@@ -27,7 +27,7 @@ def test_qim():
     stg.load_image("putin.png")
     assert stg.decode_data("qim") == b"Hello, world!"
     
- def test_qim():
+ def test_nmi():
     stg.load_image("putin.png")
     stg.encode_data(b"Hello, world!", "nmi")
     stg.save_image("putin.png")
@@ -54,7 +54,7 @@ def test_qim_long_input():
         stg.encode_data(b"Hello, world!" * 100000, "qim")
     assert str(e.value) == "[ERROR]: Can't encode data: image is too small."
 
-def test_qim_long_input():
+def test_nmi_long_input():
     with pytest.raises(Exception) as e:
         stg.load_image("putin.png")
         stg.encode_data(b"Hello, world!" * 100000, "nmi")
